@@ -1,0 +1,38 @@
+{
+  "path": ".testing/meta/issues/1",
+  "content": null,
+  "commit": {
+    "sha": "b375f3a0b2f5f8f5c24c1d04f29f10b254d7ffd1",
+    "node_id": "MDY6Q29tbWl0MjM3NTU1MDUxOmIzNzVmM2EwYjJmNWY4ZjVjMjRjMWQwNGYyOWYxMGIyNTRkN2ZmZDE=",
+    "url": "https://api.github.com/repos/paulkoanui/github-cms/git/commits/b375f3a0b2f5f8f5c24c1d04f29f10b254d7ffd1",
+    "html_url": "https://github.com/paulkoanui/github-cms/commit/b375f3a0b2f5f8f5c24c1d04f29f10b254d7ffd1",
+    "author": {
+      "name": "paulkoanui",
+      "email": "paul.koanui@gmail.com",
+      "date": "2020-03-09T15:36:51Z"
+    },
+    "committer": {
+      "name": "paulkoanui",
+      "email": "paul.koanui@gmail.com",
+      "date": "2020-03-09T15:36:51Z"
+    },
+    "tree": {
+      "sha": "d1552e950f36cfb78e3e439f0abd4d8808330ba3",
+      "url": "https://api.github.com/repos/paulkoanui/github-cms/git/trees/d1552e950f36cfb78e3e439f0abd4d8808330ba3"
+    },
+    "message": "delete publish relationship",
+    "parents": [
+      {
+        "sha": "ed259e469b2cdee63b0c395c886bcf79b373f70a",
+        "url": "https://api.github.com/repos/paulkoanui/github-cms/git/commits/ed259e469b2cdee63b0c395c886bcf79b373f70a",
+        "html_url": "https://github.com/paulkoanui/github-cms/commit/ed259e469b2cdee63b0c395c886bcf79b373f70a"
+      }
+    ],
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null
+    }
+  }
+}

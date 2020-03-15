@@ -1,0 +1,13 @@
+{
+  "action": "moved",
+  "changes": {
+    "column_id": {
+      "from": 7912870
+    }
+  },
+  "project_card": {
+    "column_id": 7912868,
+    "note": null,
+    "content_url": "https://api.github.com/repos/paulkoanui/github-cms/issues/1"
+  }
+}

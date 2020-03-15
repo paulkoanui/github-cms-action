@@ -1,0 +1,89 @@
+name: github-cms
+
+on:
+  project_card:
+    types: [moved, converted, deleted]
+
+env:
+  GITHUB_CONTEXT: ${{ toJson(github) }}
+  # This is the source system repository
+  SRC_AUTH: ${{ secrets.GITHUB_TOKEN }}
+  SRC_OWNER: ${{ github.actor }}
+  SRC_REPO: ${{ github.event.repository.name }}
+  # This is the target system repository
+  TARGET_AUTH: ${{ secrets.GITHUB_CMS_TOKEN }}
+  TARGET_OWNER: ${{ github.actor }}
+  TARGET_REPO: github-cms-docs
+  TARGET_ARCHIVE_PATH: "_archive"
+  # This is the metadata repository
+  META_AUTH: ${{ secrets.GITHUB_CMS_TOKEN }}
+  META_OWNER: ${{ github.actor }}
+  META_REPO: github-cms-meta
+  META_PATH: ".meta/md"
+  # Collections and actions mapped to project columns
+  POSTS_PUBLISH_COLUMN: 8315780
+  POSTS_ARCHIVE_COLUMN: 8321604
+  PROJECTS_PUBLISH_COLUMN: 8321609
+  PROJECTS_ARCHIVE_COLUMN: 8321610
+
+jobs:
+  publishing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: ./
+        name: Publish Posts
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && (github.event.action == 'moved' || github.event.action == 'converted')
+          && (github.event.project_card.column_id == env.POSTS_PUBLISH_COLUMN)
+        with:
+          action: "PUBLISH"
+          collection: "_posts"
+      - uses: ./
+        name: Archive Posts
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && (github.event.action == 'moved' || github.event.action == 'converted')
+          && (github.event.project_card.column_id == env.POSTS_ARCHIVE_COLUMN)
+        with:
+          action: "ARCHIVE"
+          collection: "_posts"
+      - uses: ./
+        name: Unpublish Posts
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && github.event.action == 'deleted'
+          && ((github.event.project_card.column_id == env.POSTS_PUBLISH_COLUMN) || (github.event.project_card.column_id == env.POSTS_ARCHIVE_COLUMN))
+        with:
+          action: "UNPUBLISH"
+          collection: "_posts"
+      - uses: ./
+        name: Publish Projects
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && (github.event.action == 'moved' || github.event.action == 'converted')
+          && (github.event.project_card.column_id == env.PROJECTS_PUBLISH_COLUMN)
+        with:
+          action: "PUBLISH"
+          collection: "_projects"
+      - uses: ./
+        name: Archive Projects
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && (github.event.action == 'moved' || github.event.action == 'converted')
+          && (github.event.project_card.column_id == env.PROJECTS_ARCHIVE_COLUMN)
+        with:
+          action: "ARCHIVE"
+          collection: "_projects"
+      - uses: ./
+        name: Unpublish Projects
+        if: |
+          github.event.project_card && github.event.project_card.content_url
+          && github.event.action == 'deleted'
+          && ((github.event.project_card.column_id == env.PROJECTS_PUBLISH_COLUMN) || (github.event.project_card.column_id == env.PROJECTS_ARCHIVE_COLUMN))
+        with:
+          action: "UNPUBLISH"
+          collection: "_projects"

@@ -1,0 +1,5 @@
+name: 'GitHub CMS'
+description: 'GitHub Repository Content Management System'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

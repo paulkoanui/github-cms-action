@@ -1,0 +1,38 @@
+{
+  "name": "github-cms-action",
+  "version": "1.0.0",
+  "description": "Use a GitHub Repository as a Content Management System",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "package": "ncc build index.js -o dist",
+    "test": "jest test/Publication.logic.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulkoanui/github-cms-action.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript",
+    "CMS"
+  ],
+  "author": "Paul Koanui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulkoanui/github-cms-action/issues"
+  },
+  "homepage": "https://github.com/paulkoanui/github-cms-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@octokit/rest": "^16.36.0",
+    "@sindresorhus/slugify": "^0.9.1",
+    "front-matter": "^3.1.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  }
+}

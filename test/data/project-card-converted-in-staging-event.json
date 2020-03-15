@@ -1,0 +1,12 @@
+{
+  "action": "converted",
+  "changes": {
+    "note": {
+      "from": "**Automation**\n[Automatically move your cards](https://help.github.com/articles/configuring-automation-for-project-boards/) to the right place based on the status and activity of your issues and pull requests.\n"
+    }
+  },
+  "project_card": {
+    "column_id": 7912868,
+    "content_url": "https://api.github.com/repos/paulkoanui/github-cms/issues/4"
+  }
+}

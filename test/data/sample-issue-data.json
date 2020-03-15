@@ -1,0 +1,90 @@
+{
+  "issue": {
+    "url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/1",
+    "repository_url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats",
+    "labels_url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/1/labels{/name}",
+    "comments_url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/1/comments",
+    "events_url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/1/events",
+    "html_url": "https://github.com/paulkoanui/test-49-issue-formats/issues/1",
+    "id": 551530134,
+    "node_id": "MDU6SXNzdWU1NTE1MzAxMzQ=",
+    "number": 1,
+    "title": "First Issue Test",
+    "user": {
+      "login": "paulkoanui",
+      "id": 2074485,
+      "node_id": "MDQ6VXNlcjIwNzQ0ODU=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2074485?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/paulkoanui",
+      "html_url": "https://github.com/paulkoanui",
+      "followers_url": "https://api.github.com/users/paulkoanui/followers",
+      "following_url": "https://api.github.com/users/paulkoanui/following{/other_user}",
+      "gists_url": "https://api.github.com/users/paulkoanui/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/paulkoanui/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/paulkoanui/subscriptions",
+      "organizations_url": "https://api.github.com/users/paulkoanui/orgs",
+      "repos_url": "https://api.github.com/users/paulkoanui/repos",
+      "events_url": "https://api.github.com/users/paulkoanui/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/paulkoanui/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 208045946,
+        "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
+        "url": "https://api.github.com/repos/octocat/Hello-World/labels/bug",
+        "name": "bug",
+        "description": "Something isn't working",
+        "color": "f29513",
+        "default": true
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2020-01-17T17:03:54Z",
+    "updated_at": "2020-01-18T00:55:30Z",
+    "closed_at": null,
+    "author_association": "OWNER",
+    "body": "Lorem Ipsum Dolor Sit Amet",
+    "closed_by": null
+  },
+  "comments": [
+    {
+      "url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/comments/575713577",
+      "html_url": "https://github.com/paulkoanui/test-49-issue-formats/issues/1#issuecomment-575713577",
+      "issue_url": "https://api.github.com/repos/paulkoanui/test-49-issue-formats/issues/1",
+      "id": 575713577,
+      "node_id": "MDEyOklzc3VlQ29tbWVudDU3NTcxMzU3Nw==",
+      "user": {
+        "login": "paulkoanui",
+        "id": 2074485,
+        "node_id": "MDQ6VXNlcjIwNzQ0ODU=",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/2074485?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/paulkoanui",
+        "html_url": "https://github.com/paulkoanui",
+        "followers_url": "https://api.github.com/users/paulkoanui/followers",
+        "following_url": "https://api.github.com/users/paulkoanui/following{/other_user}",
+        "gists_url": "https://api.github.com/users/paulkoanui/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/paulkoanui/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/paulkoanui/subscriptions",
+        "organizations_url": "https://api.github.com/users/paulkoanui/orgs",
+        "repos_url": "https://api.github.com/users/paulkoanui/repos",
+        "events_url": "https://api.github.com/users/paulkoanui/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/paulkoanui/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "created_at": "2020-01-17T17:08:51Z",
+      "updated_at": "2020-01-17T17:08:51Z",
+      "author_association": "OWNER",
+      "body": "What happens when I add another comment?"
+    }
+  ]
+}

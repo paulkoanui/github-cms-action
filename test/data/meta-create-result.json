@@ -1,0 +1,52 @@
+{
+  "content": {
+    "name": "1",
+    "path": ".testing/meta/issues/1",
+    "sha": "cb728120e9d4b0665ff46de1c6abcddfdea13a0f",
+    "size": 72,
+    "url": "https://api.github.com/repos/paulkoanui/github-cms/contents/.testing/meta/issues/1?ref=master",
+    "html_url": "https://github.com/paulkoanui/github-cms/blob/master/.testing/meta/issues/1",
+    "git_url": "https://api.github.com/repos/paulkoanui/github-cms/git/blobs/cb728120e9d4b0665ff46de1c6abcddfdea13a0f",
+    "download_url": "https://raw.githubusercontent.com/paulkoanui/github-cms/master/.testing/meta/issues/1?token=AAP2O5MNF7ZIIAQEKIMWRFK6MZNU4",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/paulkoanui/github-cms/contents/.testing/meta/issues/1?ref=master",
+      "git": "https://api.github.com/repos/paulkoanui/github-cms/git/blobs/cb728120e9d4b0665ff46de1c6abcddfdea13a0f",
+      "html": "https://github.com/paulkoanui/github-cms/blob/master/.testing/meta/issues/1"
+    }
+  },
+  "commit": {
+    "sha": "ed259e469b2cdee63b0c395c886bcf79b373f70a",
+    "node_id": "MDY6Q29tbWl0MjM3NTU1MDUxOmVkMjU5ZTQ2OWIyY2RlZTYzYjBjMzk1Yzg4NmJjZjc5YjM3M2Y3MGE=",
+    "url": "https://api.github.com/repos/paulkoanui/github-cms/git/commits/ed259e469b2cdee63b0c395c886bcf79b373f70a",
+    "html_url": "https://github.com/paulkoanui/github-cms/commit/ed259e469b2cdee63b0c395c886bcf79b373f70a",
+    "author": {
+      "name": "paulkoanui",
+      "email": "paul.koanui@gmail.com",
+      "date": "2020-03-09T15:04:49Z"
+    },
+    "committer": {
+      "name": "paulkoanui",
+      "email": "paul.koanui@gmail.com",
+      "date": "2020-03-09T15:04:49Z"
+    },
+    "tree": {
+      "sha": "3f11c8f34f8509204f63771e547515ad13d3d939",
+      "url": "https://api.github.com/repos/paulkoanui/github-cms/git/trees/3f11c8f34f8509204f63771e547515ad13d3d939"
+    },
+    "message": "create publish relationship",
+    "parents": [
+      {
+        "sha": "8d035188efb287876135d7117c707bde265aa41c",
+        "url": "https://api.github.com/repos/paulkoanui/github-cms/git/commits/8d035188efb287876135d7117c707bde265aa41c",
+        "html_url": "https://github.com/paulkoanui/github-cms/commit/8d035188efb287876135d7117c707bde265aa41c"
+      }
+    ],
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null
+    }
+  }
+}

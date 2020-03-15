@@ -1,0 +1,13 @@
+{
+  "SRC_AUTH": "***",
+  "SRC_OWNER": "paulkoanui",
+  "SRC_REPO": "github-cms",
+  "TARGET_AUTH": "***",
+  "TARGET_OWNER": "paulkoanui",
+  "TARGET_REPO": "target-test-1",
+  "TARGET_ARCHIVE_PATH": "_archive",
+  "META_AUTH": "***",
+  "META_OWNER": "paulkoanui",
+  "META_REPO": "github-cms-meta",
+  "META_PATH": ".meta/md"
+}
