@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Publish Posts
         if: |
           github.event.project_card && github.event.project_card.content_url
@@ -42,7 +42,7 @@ jobs:
         with:
           action: "PUBLISH"
           collection: "_posts"
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Archive Posts
         if: |
           github.event.project_card && github.event.project_card.content_url
@@ -51,7 +51,7 @@ jobs:
         with:
           action: "ARCHIVE"
           collection: "_posts"
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Unpublish Posts
         if: |
           github.event.project_card && github.event.project_card.content_url
@@ -60,7 +60,7 @@ jobs:
         with:
           action: "UNPUBLISH"
           collection: "_posts"
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Publish Projects
         if: |
           github.event.project_card && github.event.project_card.content_url
@@ -69,7 +69,7 @@ jobs:
         with:
           action: "PUBLISH"
           collection: "_projects"
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Archive Projects
         if: |
           github.event.project_card && github.event.project_card.content_url
@@ -78,7 +78,7 @@ jobs:
         with:
           action: "ARCHIVE"
           collection: "_projects"
-      - uses: ./
+      - uses: paulkoanui/github-cms-action@master
         name: Unpublish Projects
         if: |
           github.event.project_card && github.event.project_card.content_url

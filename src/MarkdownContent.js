@@ -37,7 +37,13 @@ function build(args) {
 
 function makeMatter(collection, src){
   
-  const content = [ src.issue.body, ...src.comments.map((comment) => comment.body) ].join('\n') // || src.issue.title
+  /*
+  NOTE: comments are not included in the content item.
+  This is by design so that its not possible for another
+  user's comments to be published in the case of public
+  repositories.
+   */
+  const content = src.issue.body
   const issue = src.issue
   
   const matter = fm(content)
@@ -135,6 +141,7 @@ class MarkdownContent extends Content {
   publish(){
     /*
       - build the target content item
+      - remove from published location (if name changed)
       - remove from archived location (if exists)
       - add to published location
       - manage meta data
@@ -142,6 +149,7 @@ class MarkdownContent extends Content {
     
     return super.data()
     .then((issue) => build({ issue, issue_num: this.issue_num }))
+    .then(undoPublish)
     .then(undoArchive)
     .then(publish)
     .then((args) => manageMeta({ ...args, state: 'published' }))
@@ -150,12 +158,14 @@ class MarkdownContent extends Content {
   archive(){
     /*
       - build the target content item
+      - remove from archived location (if name changed)
       - remove from published location (if exists)
       - add to archived location
       - manage meta data
      */
     return super.data()
     .then((issue) => build({ issue, issue_num: this.issue_num }))
+    .then(undoArchive)
     .then(undoPublish)
     .then(archive)
     .then((args) => manageMeta({ ...args, state: 'archived' }))

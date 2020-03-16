@@ -7,6 +7,8 @@ beforeAll(() => {
   setupVars(testActionEnv)
 })
 
+//TODO: setup the test inputs so that core.getInput('collection') returns something.
+
 describe('Do all Publish actions exhibit the expected behavior in success and failure cases?', () => {
   
   const issue_num_pass = 1
@@ -96,16 +98,10 @@ describe('Do all Unpublish actions exhibit the expected behavior in success and 
     })
   })
   
-  test.only('MarkdownContent.Unpublish(IssueNumber) fails with status 404 and the \'not found\' resource name', () => {
+  test('MarkdownContent.Unpublish(IssueNumber) fails with status 404 and the \'not found\' resource name', () => {
     const c = new MarkdownContent(issue_num_fail)
-    return expect(c.unpublish()).resolves.toMatchObject({
-      metadata: {
-        issue_num: expect.any(Number),
-        path: expect.any(String),
-        state: "unpublished",
-        status: 404
-      }
-    })
+    const p = c.unpublish()
+    return expect(p).rejects.toMatchObject({ status: 404 })
   })
   
 })

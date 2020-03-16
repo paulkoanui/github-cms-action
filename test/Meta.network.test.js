@@ -10,6 +10,11 @@ beforeEach(() => {
 describe('GitHub API Tests', () => {
   
   test('Meta.Create with path, message, and metadata succeeds with status 200', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     const meta = new Meta()
     const args = {
       path: `.testing/meta/issues/1`,
@@ -29,6 +34,11 @@ describe('GitHub API Tests', () => {
   
   test('Meta.Create with path, message, and metadata fails with status 401', () => {
     //modify the credentials to get bad credentials 401
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     setEnv('META_AUTH', '***')
     const meta = new Meta()
     const args = {
@@ -45,6 +55,11 @@ describe('GitHub API Tests', () => {
   })
 
   test('Meta.Read with path succeeds with status 200 and metadata', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     const meta = new Meta()
     const args = {
       path: `.testing/meta/issues/1`
@@ -52,6 +67,11 @@ describe('GitHub API Tests', () => {
     return expect(meta.read(args)).resolves.toBeTruthy()
   })
   test('Meta.Read with path fails with status 404', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     const meta = new Meta()
     const args = {
       path: `.testing/meta/issues/1890098`
@@ -59,6 +79,11 @@ describe('GitHub API Tests', () => {
     return expect(meta.read(args)).rejects.toThrowError('Not Found')
   })
   test('Meta.Delete with path succeeds with status 200', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     const t = new Date().getTime()
     const meta = new Meta()
     const args = {
@@ -77,6 +102,11 @@ describe('GitHub API Tests', () => {
     })
   })
   test('Meta.Delete with path fails with status 404', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
+  
     const t = new Date().getTime()
     const meta = new Meta()
     const args = {

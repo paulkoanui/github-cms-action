@@ -2,6 +2,8 @@ const MarkdownMeta = require('../src/MarkdownMeta')
 const testActionEnv = require('./data/test-action-env')
 const { setupVars, setEnv } = require('./env_util')
 
+//TODO: setup the test inputs so that core.getInput('collection') returns something.
+
 beforeEach(() => {
   // setup environment variables
   setupVars(testActionEnv)
@@ -10,6 +12,10 @@ beforeEach(() => {
 describe('MarkdownMeta Network Tests', () => {
   
   test('MarkdownMeta.Create with issue_num, id_target, state succeeds with status 200', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     const meta = new MarkdownMeta()
     const args = {
       state: 'published',
@@ -24,6 +30,10 @@ describe('MarkdownMeta Network Tests', () => {
   
   test('MarkdownMeta.Create with path, message, and metadata fails with status 401', () => {
     //modify the credentials to get bad credentials 401
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     setEnv('META_AUTH', '***')
     const meta = new MarkdownMeta()
     const args = {
@@ -35,6 +45,10 @@ describe('MarkdownMeta Network Tests', () => {
   })
 
   test('MarkdownMeta.Read with path succeeds with status 200 and metadata', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     const meta = new MarkdownMeta()
     const args = {
       issue_num: 1
@@ -43,6 +57,10 @@ describe('MarkdownMeta Network Tests', () => {
   })
   
   test('MarkdownMeta.Read with path fails with status 404', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     const meta = new MarkdownMeta()
     const args = {
       issue_num: 1890098
@@ -51,6 +69,10 @@ describe('MarkdownMeta Network Tests', () => {
   })
   
   test('MarkdownMeta.Delete with path succeeds with status 200', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     const meta = new MarkdownMeta()
     const args = {
       state: 'published',
@@ -64,6 +86,10 @@ describe('MarkdownMeta Network Tests', () => {
   })
   
   test('MarkdownMeta.Delete with path resolves with status 404', () => {
+    setupVars({
+      "action": "PUBLISH",
+      "collection": "_posts"
+    }, "INPUT_")
     const t = new Date().getTime()
     const meta = new MarkdownMeta()
     const args = {

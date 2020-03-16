@@ -1386,7 +1386,13 @@ function build(args) {
 
 function makeMatter(collection, src){
   
-  const content = [ src.issue.body, ...src.comments.map((comment) => comment.body) ].join('\n') // || src.issue.title
+  /*
+  NOTE: comments are not included in the content item.
+  This is by design so that its not possible for another
+  user's comments to be published in the case of public
+  repositories.
+   */
+  const content = src.issue.body
   const issue = src.issue
   
   const matter = fm(content)
@@ -1484,6 +1490,7 @@ class MarkdownContent extends Content {
   publish(){
     /*
       - build the target content item
+      - remove from published location (if name changed)
       - remove from archived location (if exists)
       - add to published location
       - manage meta data
@@ -1491,6 +1498,7 @@ class MarkdownContent extends Content {
     
     return super.data()
     .then((issue) => build({ issue, issue_num: this.issue_num }))
+    .then(undoPublish)
     .then(undoArchive)
     .then(publish)
     .then((args) => manageMeta({ ...args, state: 'published' }))
@@ -1499,12 +1507,14 @@ class MarkdownContent extends Content {
   archive(){
     /*
       - build the target content item
+      - remove from archived location (if name changed)
       - remove from published location (if exists)
       - add to archived location
       - manage meta data
      */
     return super.data()
     .then((issue) => build({ issue, issue_num: this.issue_num }))
+    .then(undoArchive)
     .then(undoPublish)
     .then(archive)
     .then((args) => manageMeta({ ...args, state: 'archived' }))
@@ -2939,6 +2949,7 @@ module.exports = {"_from":"@octokit/rest@^16.36.0","_id":"@octokit/rest@16.41.1"
 /***/ 220:
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
+const core = __webpack_require__(470)
 const Meta = __webpack_require__(275)
 
 class MarkdownMeta extends Meta {
@@ -2950,7 +2961,7 @@ class MarkdownMeta extends Meta {
   
   create(issue_num, id_target, state){
     return super.create({
-      path: `${process.env.META_PATH}/${issue_num}.json`,
+      path: `${process.env.META_PATH}/${core.getInput('collection')}/${issue_num}.json`,
       metadata: {
         target_type: this.target_type,
         state,
@@ -2963,13 +2974,13 @@ class MarkdownMeta extends Meta {
   
   read(issue_num){
     return super.read({
-      path: `${process.env.META_PATH}/${issue_num}.json`
+      path: `${process.env.META_PATH}/${core.getInput('collection')}/${issue_num}.json`
     })
   }
   
   delete(issue_num){
     return super.delete({
-      path: `${process.env.META_PATH}/${issue_num}.json`
+      path: `${process.env.META_PATH}/${core.getInput('collection')}/${issue_num}.json`
     })
   }
 }
