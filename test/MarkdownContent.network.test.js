@@ -1,4 +1,7 @@
-const MarkdownContent = require('../src/MarkdownContent')
+jest.unmock('../src/MarkdownMeta')
+jest.unmock('../src/MarkdownContent')
+
+const MarkdownContent = jest.requireActual('../src/MarkdownContent')
 const testActionEnv = require('./data/test-action-env')
 const { setupVars } = require('./env_util')
 
@@ -7,15 +10,13 @@ beforeAll(() => {
   setupVars(testActionEnv)
 })
 
-//TODO: setup the test inputs so that core.getInput('collection') returns something.
-
 describe('Do all Publish actions exhibit the expected behavior in success and failure cases?', () => {
   
   const issue_num_pass = 1
   const issue_num_fail = 1000
   const issue_num_500 = null
   
-  test('MarkdownContent.Publish(IssueNumber) succeeds with status 200 and values: id_src, id_target, time published', () => {
+  test('MarkdownContent.Publish(IssueNumber) succeeds with values: id_src, id_target, time published', () => {
     setupVars({
       "action": "PUBLISH",
       "collection": "_posts"
@@ -23,10 +24,10 @@ describe('Do all Publish actions exhibit the expected behavior in success and fa
     const c = new MarkdownContent(issue_num_pass)
     return expect(c.publish()).resolves.toMatchObject({
       metadata: {
-        issue_num: expect.any(Number),
-        id_target: expect.any(String),
-        updated: expect.any(String),
-        state: "published"
+        target_type: 'MarkdownContent',
+        state: 'published',
+        issue_num: 1,
+        id_target: '_posts/2015-09-25-how-to-undo-your-git-failure.md'
       }
     })
   })

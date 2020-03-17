@@ -1,8 +1,6 @@
-const MarkdownMeta = require('../src/MarkdownMeta')
+const MarkdownMeta = jest.requireActual('../src/MarkdownMeta')
 const testActionEnv = require('./data/test-action-env')
 const { setupVars, setEnv } = require('./env_util')
-
-//TODO: setup the test inputs so that core.getInput('collection') returns something.
 
 beforeEach(() => {
   // setup environment variables

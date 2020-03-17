@@ -1,0 +1,6 @@
+require('./test/Publication.logic.test')
+require('./test/Meta.network.test')
+require('./test/MarkdownMeta.network.test')
+require('./test/MarkdownContent.network.test')
+require('./test/front-matter/front-matter.test')
+require('./test/content/build-content-item.test')

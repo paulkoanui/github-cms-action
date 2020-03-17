@@ -1,4 +1,4 @@
-const Meta = require('../src/Meta')
+const Meta = jest.requireActual('../src/Meta')
 const testActionEnv = require('./data/test-action-env')
 const { setupVars, setEnv } = require('./env_util')
 

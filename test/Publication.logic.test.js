@@ -9,9 +9,18 @@ jest.mock('../src/MarkdownMeta')
 jest.mock('../src/MarkdownContent')
 
 beforeAll(() => {
+
   // setup environment variables
   setupVars(testActionEnv)
   setupVars({ "meta_repo": "github-cms" }, "INPUT_")
+  
+})
+
+afterAll(() => {
+  
+  jest.unmock('../src/MarkdownMeta')
+  jest.unmock('../src/MarkdownContent')
+  
 })
 
 describe('Core Environment', () => {
