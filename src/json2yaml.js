@@ -86,7 +86,7 @@ function normalizeString(str) {
 }
 
 function convertString(obj, ret) {
-  ret.push(obj)
+  ret.push(normalizeString(obj))
 }
 
 module.exports = function json2yaml(obj) {
