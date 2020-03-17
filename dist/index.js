@@ -1363,13 +1363,17 @@ function build(args) {
       const { issue: src } = args
       const collection = core.getInput('collection') || ''
       const matter = makeMatter(collection, src)
-      const payload = [
-        '---',
-        json2yaml(matter.attributes),
-        '---',
-        '',
-        matter.body
-      ].join('\n')
+      const final = []
+      
+      if (!matter.attributes.no_matter){
+        final.push('---')
+        final.push(json2yaml(matter.attributes))
+        final.push('---')
+        final.push('')
+      }
+      final.push(matter.body)
+      
+      const payload = final.join('\n')
       
       resolve({
         ...args,
