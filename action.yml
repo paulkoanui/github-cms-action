@@ -1,5 +1,5 @@
 name: 'GitHub Content Management System'
-description: 'This action enables content management and publication capabilities on any GitHub Repository. Content is stored as GitHub Issues, managed through GitHub Projects, published by a GitHub Action to a GitHub Repository and hosted by GitHub Pages.'
+description: 'Content is stored as GitHub Issues, managed through GitHub Projects, published by GitHub Actions and hosted by GitHub Pages.'
 runs:
   using: 'node12'
   main: 'dist/index.js'
