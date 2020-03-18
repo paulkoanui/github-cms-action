@@ -3,3 +3,6 @@ description: 'GitHub Repository Content Management System'
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  icon: 'edit-3'
+  color: '#ac44f2'
