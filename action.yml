@@ -5,4 +5,4 @@ runs:
   main: 'dist/index.js'
 branding:
   icon: 'edit-3'
-  color: '#ac44f2'
+  color: 'orange'
