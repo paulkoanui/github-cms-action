@@ -11,20 +11,20 @@ env:
   SRC_OWNER: ${{ github.actor }}
   SRC_REPO: ${{ github.event.repository.name }}
   # This is the target system repository
-  TARGET_AUTH: ${{ secrets.GITHUB_CMS_TOKEN }}
+  TARGET_AUTH: ${{ secrets.GITHUB_TOKEN }}
   TARGET_OWNER: ${{ github.actor }}
-  TARGET_REPO: github-cms-docs
+  TARGET_REPO: ${{ github.event.repository.name }}
   TARGET_ARCHIVE_PATH: "_archive"
   # This is the metadata repository
-  META_AUTH: ${{ secrets.GITHUB_CMS_TOKEN }}
+  META_AUTH: ${{ secrets.GITHUB_TOKEN }}
   META_OWNER: ${{ github.actor }}
-  META_REPO: github-cms-meta
+  META_REPO: ${{ github.event.repository.name }}
   META_PATH: ".meta/md"
   # Collections and actions mapped to project columns
-  POSTS_PUBLISH_COLUMN: 8315780
-  POSTS_ARCHIVE_COLUMN: 8321604
-  PROJECTS_PUBLISH_COLUMN: 8321609
-  PROJECTS_ARCHIVE_COLUMN: 8321610
+  POSTS_PUBLISH_COLUMN: 5555555
+  POSTS_ARCHIVE_COLUMN: 3333333
+  PAGES_PUBLISH_COLUMN: 5555555
+  PAGES_ARCHIVE_COLUMN: 3333333
 
 jobs:
   publishing:
@@ -61,29 +61,29 @@ jobs:
           action: "UNPUBLISH"
           collection: "_posts"
       - uses: paulkoanui/github-cms-action@master
-        name: Publish Projects
+        name: Publish Pages
         if: |
           github.event.project_card && github.event.project_card.content_url
           && (github.event.action == 'moved' || github.event.action == 'converted')
-          && (github.event.project_card.column_id == env.PROJECTS_PUBLISH_COLUMN)
+          && (github.event.project_card.column_id == env.PAPGES_PUBLISH_COLUMN)
         with:
           action: "PUBLISH"
-          collection: "_projects"
+          collection: "_pages"
       - uses: paulkoanui/github-cms-action@master
-        name: Archive Projects
+        name: Archive Pages
         if: |
           github.event.project_card && github.event.project_card.content_url
           && (github.event.action == 'moved' || github.event.action == 'converted')
-          && (github.event.project_card.column_id == env.PROJECTS_ARCHIVE_COLUMN)
+          && (github.event.project_card.column_id == env.PAGES_ARCHIVE_COLUMN)
         with:
           action: "ARCHIVE"
-          collection: "_projects"
+          collection: "_pages"
       - uses: paulkoanui/github-cms-action@master
-        name: Unpublish Projects
+        name: Unpublish Pages
         if: |
           github.event.project_card && github.event.project_card.content_url
           && github.event.action == 'deleted'
-          && ((github.event.project_card.column_id == env.PROJECTS_PUBLISH_COLUMN) || (github.event.project_card.column_id == env.PROJECTS_ARCHIVE_COLUMN))
+          && ((github.event.project_card.column_id == env.PAGES_PUBLISH_COLUMN) || (github.event.project_card.column_id == env.PAGES_ARCHIVE_COLUMN))
         with:
           action: "UNPUBLISH"
-          collection: "_projects"
+          collection: "_pages"
