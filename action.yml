@@ -1,4 +1,4 @@
-name: 'GitHub CMS'
+name: 'GitHub Content Management System'
 description: 'GitHub Repository Content Management System'
 runs:
   using: 'node12'
