@@ -1,47 +1,14 @@
 # GitHub CMS Action
 
-A GitHub repository has all of the ingredients for serving as a content management system.
+This is a GitHub Action that can turn any GitHub Repository into a Content Management System.
 
-In the scope of this project:
-- **Content management system** is defined as a system for managing web pages and/or posts.  It provides functionality that allows users to draft, publish, archive, and delete content.  It represents the source of truth for all content that it manages.
-- **Content publication** is the process of synchronizing source content with some target system based on the content's publication state.
-- **Source system** for all content is GitHub Issues where each issue represents one content item.
-- **Target system** is a GitHub repository where published content items are rendered as Markdown files.  This repository is rendered as a website with GitHub Pages.
-- **Meta system** is a GitHub repository where source/target relationships are stored as JSON files. When source content is published, metadata regarding the source/target relationship is updated.
-- **Publication states** are managed through a GitHub Project that acts as a state machine.
-- **Publication actions** are defined with JavaScript in Node.js and executed by GitHub Actions. 
+### Usage
+
+Please visit https://paulkoanui.github.io/github-cms-docs/ for documentation and usage guidance.
 
 
-## Publication States
-Source content can be in one of four publication states:
-- Staged
-  - Items in this state are "staged" for a publishing action.  That means, moving from this state to Published or Archived will execute that publishing action (Publish or Archive).  Moving from Published or Archived to this state will produce no publishing action.
-- Published
-  - Items in this state have a metadata record that relates the source item to a target item.
-- Archived
-  - Items in this state have a metadata record that relates the source item to a target item.
-- Unpublished
-  - Items in this state are not mapped to the target system.  There is no metadata record for the source item.  If the item is currently in a Published or Archived state, it will be removed from the target system and its metadata record will also be removed.
+### Development
 
-## Usage
-There are multiple ways that you can work with this action.
-
-### Use this repository as a template to create an action copy in a new repository.  
-Click the `Use this Template` and provide the new repo details for your action.
-
-### Consume this action from a workflow file contained in another repository.
-In the workflow file, reference this repository with a version.  For example:
-```yaml
-uses: paulkoanui/github-cms-action@v1
-with:
-  action: "PUBLISH"
-  collection: "_posts"
-```
-> The above is an excerpt from the larger publication workflow meant to show how to reference the action (`paulkoanui/github-cms-action@v1`).  
-> See https://github.com/paulkoanui/github-cms-action/releases for release versions of this action.
-> See `/workflows/github-cms.template.yml` for the full workflow specification.
-
-### Code in Master
 Install the dependencies  
 ```bash
 $ npm install
